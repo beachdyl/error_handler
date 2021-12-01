@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/beachdyl/error_handler/issues"
   },
-  "homepage": "https://github.com/beachdyl/error_handler#readme"
+  "homepage": "https://github.com/beachdyl/error_handler#readme",
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  }
 }
