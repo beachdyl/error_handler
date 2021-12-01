@@ -1,0 +1,24 @@
+{
+  "name": "@beachdyl/error_handler",
+  "version": "1.0.0",
+  "description": "provides for common discord bot error handling",
+  "main": "errorHandler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/beachdyl/error_handler.git"
+  },
+  "keywords": [
+    "discordjs",
+    "errors",
+    "nodejs"
+  ],
+  "author": "Dylan Bowerman (@beachdyl)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beachdyl/error_handler/issues"
+  },
+  "homepage": "https://github.com/beachdyl/error_handler#readme"
+}
