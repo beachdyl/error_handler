@@ -85,4 +85,4 @@ let errHandle = function(error, type, client) {
 	}
 };
 
-module.exports = errHandle;
+module.exports = {errHandle};
