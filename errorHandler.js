@@ -1,7 +1,7 @@
 // Require the necessary files and modules
 const fs = require('fs');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { token, clientId, guildId, devChannelId } = require('./EHconfig.json');
+const { botName, botAvatarUrl, botLink, devChannelId } = require('./EHconfig.json');
 
 // Define error types
 const type_table = {
@@ -47,22 +47,22 @@ let errHandle = function(error, type, client) {
 	const errorEmbed = new MessageEmbed()
 		.setColor(`${color_table[type]}`)
 		.setTitle('I have handled an error!')
-		.setAuthor('Sector', 'https://i.ibb.co/BVKGkd9/gayliens.png', 'https://beachdyl.com')
+		.setAuthor(botName, botAvatarUrl, botLink)
 		.setDescription('Something went wrong, and I am here to tell you about it. I managed to recover, but at what cost?')
 		.addField('Error', `${error}`, false)
 		.addField('Error Type', `${type_table[type]}`, true)
-		.setThumbnail('https://i.ibb.co/BVKGkd9/gayliens.png')
+		//.setThumbnail('https://i.ibb.co/BVKGkd9/gayliens.png')
 		.setTimestamp();
 
 	// Make embed for persistent errors
 	const persistErrorEmbed = new MessageEmbed()
 		.setColor(`${color_table[type]}`)
 		.setTitle('I have handled a persistent error!')
-		.setAuthor('Sector', 'https://i.ibb.co/BVKGkd9/gayliens.png', 'https://beachdyl.com')
+		.setAuthor(botName, botAvatarUrl, botLink)
 		.setDescription('Something went wrong, and I am here to tell you about it. I was not able to resolve the error. As such, it needs to be manually cleared from my files.')
 		.addField('Error', `${error}`, false)
 		.addField('Error Type', `${type_table[type]}`, true)
-		.setThumbnail('https://i.ibb.co/BVKGkd9/gayliens.png')
+		//.setThumbnail('https://i.ibb.co/BVKGkd9/gayliens.png')
 		.setTimestamp();
 
 	// Do your best to deliver or log the error(s)

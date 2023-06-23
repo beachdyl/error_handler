@@ -2,7 +2,7 @@
   "name": "@beachdyl/error_handler",
   "version": "1.0.0",
   "description": "provides for common discord bot error handling",
-  "main": "errorHandler.js",
+  "main": "errorHandler",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
