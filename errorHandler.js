@@ -52,7 +52,7 @@ let errHandle = function(error, type, client) {
 			{name: 'Error', value: `${error}`, inline: false},
 			{name: 'Error Type', value: `${type_table[type]}`, inline: true}
 		)
-		//.setThumbnail('https://i.ibb.co/BVKGkd9/gayliens.png')
+		.setThumbnail('https://i.imgur.com/TmNKrSj.png')
 		.setTimestamp();
 
 	// Make embed for persistent errors
@@ -65,7 +65,7 @@ let errHandle = function(error, type, client) {
 			{name: 'Error', value: `${error}`, inline: false},
 			{name: 'Error Type', value: `${type_table[type]}`, inline: true}
 		)
-		//.setThumbnail('https://i.ibb.co/BVKGkd9/gayliens.png')
+		.setThumbnail('https://i.imgur.com/TmNKrSj.png')
 		.setTimestamp();
 
 	// Do your best to deliver or log the error(s)
