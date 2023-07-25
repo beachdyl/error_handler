@@ -1,12 +1,12 @@
 // Require the necessary files and modules
 const fs = require('fs');
 const { EmbedBuilder } = require('discord.js');
-
-if ('../../../EHconfig.json') {
-	const { botName, botAvatarUrl, botLink, devChannelId } = require('../../../EHconfig.json');
-} else {
-	const { botName, botAvatarUrl, botLink, devChannelId } = require('./EHconfig.json');
-}
+let config;
+try {
+	config = require('../../../EHconfig.json');
+} catch {
+	config = require('./EHconfig.json');
+};
 
 // Define error types
 const type_table = {
@@ -51,7 +51,7 @@ let errHandle = function(error, type, client) {
 	const errorEmbed = new EmbedBuilder()
 		.setColor(`${color_table[type]}`)
 		.setTitle('I have handled an error!')
-		.setAuthor({name: botName, iconURL: botAvatarUrl, url: botLink})
+		.setAuthor({name: config.botName, iconURL: config.botAvatarUrl, url: config.botLink})
 		.setDescription('Something went wrong, and I am here to tell you about it. I managed to recover, but at what cost?')
 		.addFields(
 			{name: 'Error', value: `${error}`, inline: false},
@@ -64,7 +64,7 @@ let errHandle = function(error, type, client) {
 	const persistErrorEmbed = new EmbedBuilder()
 		.setColor(`${color_table[type]}`)
 		.setTitle('I have handled a persistent error!')
-		.setAuthor({name: botName, iconURL: botAvatarUrl, url: botLink})
+		.setAuthor({name: config.botName, iconURL: config.botAvatarUrl, url: config.botLink})
 		.setDescription('Something went wrong, and I am here to tell you about it. I was not able to resolve the error. As such, it needs to be manually cleared from my files.')
 		.addFields(
 			{name: 'Error', value: `${error}`, inline: false},
@@ -76,9 +76,9 @@ let errHandle = function(error, type, client) {
 	// Do your best to deliver or log the error(s)
 	try {
 		if (type !== 2 && type !== 4 && type !== 6 && type !== 7) {
-			client.channels.cache.get(devChannelId).send({embeds: [errorEmbed] });
+			client.channels.cache.get(config.devChannelId).send({embeds: [errorEmbed] });
 		} else if (type === 7) {
-			client.channels.cache.get(devChannelId).send({embeds: [persistErrorEmbed] });
+			client.channels.cache.get(config.devChannelId).send({embeds: [persistErrorEmbed] });
 		}
 	} catch (error) {
 		if (type !== 4 && type !== 6) {
