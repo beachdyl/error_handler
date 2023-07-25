@@ -1,7 +1,12 @@
 // Require the necessary files and modules
 const fs = require('fs');
 const { MessageEmbed } = require('discord.js');
-const { botName, botAvatarUrl, botLink, devChannelId } = require('./EHconfig.json');
+
+if ('../../../EHconfig.json') {
+	const { botName, botAvatarUrl, botLink, devChannelId } = require('../../../EHconfig.json');
+} else {
+	const { botName, botAvatarUrl, botLink, devChannelId } = require('./EHconfig.json');
+}
 
 // Define error types
 const type_table = {
