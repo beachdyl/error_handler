@@ -1,6 +1,6 @@
 {
   "name": "@beachdyl/error_handler",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "provides for common discord bot error handling",
   "main": "errorHandler",
   "scripts": {

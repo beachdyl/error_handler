@@ -1,6 +1,6 @@
 // Require the necessary files and modules
 const fs = require('fs');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 if ('../../../EHconfig.json') {
 	const { botName, botAvatarUrl, botLink, devChannelId } = require('../../../EHconfig.json');
