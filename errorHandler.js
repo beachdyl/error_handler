@@ -1,6 +1,6 @@
 // Require the necessary files and modules
 const fs = require('fs');
-const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { botName, botAvatarUrl, botLink, devChannelId } = require('./EHconfig.json');
 
 // Define error types
@@ -27,7 +27,6 @@ const color_table = {
 
 //errHandle function
 let errHandle = function(error, type, client) {
-	let typetext = '';
 
 	//Log error in console and files
 	console.error(`Error Handled (${type_table[type]}):\n${error}`);
@@ -47,10 +46,12 @@ let errHandle = function(error, type, client) {
 	const errorEmbed = new MessageEmbed()
 		.setColor(`${color_table[type]}`)
 		.setTitle('I have handled an error!')
-		.setAuthor(botName, botAvatarUrl, botLink)
+		.setAuthor({name: botName, iconURL: botAvatarUrl, url: botLink})
 		.setDescription('Something went wrong, and I am here to tell you about it. I managed to recover, but at what cost?')
-		.addField('Error', `${error}`, false)
-		.addField('Error Type', `${type_table[type]}`, true)
+		.addFields(
+			{name: 'Error', value: `${error}`, inline: false},
+			{name: 'Error Type', value: `${type_table[type]}`, inline: true}
+		)
 		//.setThumbnail('https://i.ibb.co/BVKGkd9/gayliens.png')
 		.setTimestamp();
 
@@ -58,10 +59,12 @@ let errHandle = function(error, type, client) {
 	const persistErrorEmbed = new MessageEmbed()
 		.setColor(`${color_table[type]}`)
 		.setTitle('I have handled a persistent error!')
-		.setAuthor(botName, botAvatarUrl, botLink)
+		.setAuthor({name: botName, iconURL: botAvatarUrl, url: botLink})
 		.setDescription('Something went wrong, and I am here to tell you about it. I was not able to resolve the error. As such, it needs to be manually cleared from my files.')
-		.addField('Error', `${error}`, false)
-		.addField('Error Type', `${type_table[type]}`, true)
+		.addFields(
+			{name: 'Error', value: `${error}`, inline: false},
+			{name: 'Error Type', value: `${type_table[type]}`, inline: true}
+		)
 		//.setThumbnail('https://i.ibb.co/BVKGkd9/gayliens.png')
 		.setTimestamp();
 

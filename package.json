@@ -1,6 +1,6 @@
 {
   "name": "@beachdyl/error_handler",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "provides for common discord bot error handling",
   "main": "errorHandler",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/beachdyl/error_handler#readme",
   "dependencies": {
-    "discord.js": "^13.3.1"
+    "discord.js": "^14.11.0"
   }
 }
