@@ -48,7 +48,7 @@ let errHandle = function(error, type, client) {
 	}
 
 	// Make embed for normal errors
-	const errorEmbed = new MessageEmbed()
+	const errorEmbed = new EmbedBuilder()
 		.setColor(`${color_table[type]}`)
 		.setTitle('I have handled an error!')
 		.setAuthor({name: botName, iconURL: botAvatarUrl, url: botLink})
@@ -61,7 +61,7 @@ let errHandle = function(error, type, client) {
 		.setTimestamp();
 
 	// Make embed for persistent errors
-	const persistErrorEmbed = new MessageEmbed()
+	const persistErrorEmbed = new EmbedBuilder()
 		.setColor(`${color_table[type]}`)
 		.setTitle('I have handled a persistent error!')
 		.setAuthor({name: botName, iconURL: botAvatarUrl, url: botLink})
